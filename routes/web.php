@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\CategoriaController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +23,5 @@ Route::get('/', function () {
 Route::get('/teste', function () {
     echo "testando ...";
 });
+
+Route::get('/categoria', [CategoriaController::class, 'listar']);
