@@ -8,11 +8,9 @@
   </head>
   <body>
     <div class="container">
-        <?php
-          if (isset($mensagem)) {
-            echo "<div class='alert alert-primary' >$mensagem</div>";
-          }
-        ?>
+        @if (isset($mensagem))
+            <div class='alert alert-primary' >nova mensagem: {{$mensagem}}</div>
+        @endif
 
         <h1>Categorias</h1>
         <a href="novo" class="btn btn-primary">Nova Categoria</a>
@@ -27,20 +25,16 @@
             </thead>
             <tbody>
 
-              <?php
-                foreach($categorias as $categoria) {
-                  echo "
+                @foreach($categorias as $categoria)
                     <tr>
-                      <th scope='row'>{$categoria->id}</th>
-                      <td>{$categoria->descricao}</td>
+                      <th scope='row'>{{$categoria->id}}</th>
+                      <td>{{$categoria->descricao}}</td>
                       <td>
-                      <a class='btn btn-danger' href='apagar/{$categoria->id}'>x</a></td>
+                      <a class='btn btn-danger' href='apagar/{{$categoria->id}}'>x</a></td>
                       <td>
-                      <a class='btn btn-primary' href='editar/{$categoria->id}'>+</a></td>
+                      <a class='btn btn-primary' href='editar/{{$categoria->id}}'>+</a></td>
                     </tr>
-                  ";
-                }
-              ?>
+                @endforeach
             </tbody>
           </table>
     </div>
