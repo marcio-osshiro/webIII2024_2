@@ -13,7 +13,7 @@
         @endif
 
         <h1>Categorias</h1>
-        <a href="novo" class="btn btn-primary">Nova Categoria</a>
+        <a href="categoria/novo" class="btn btn-primary">Nova Categoria</a>
         <table class="table table-striped table-bordered">
             <thead>
               <tr>
@@ -30,9 +30,9 @@
                       <th scope='row'>{{$categoria->id}}</th>
                       <td>{{$categoria->descricao}}</td>
                       <td>
-                      <a class='btn btn-danger' href='apagar/{{$categoria->id}}'>x</a></td>
+                      <a class='btn btn-danger' href='categoria/apagar/{{$categoria->id}}'>x</a></td>
                       <td>
-                      <a class='btn btn-primary' href='editar/{{$categoria->id}}'>+</a></td>
+                      <a class='btn btn-primary' href='categoria/editar/{{$categoria->id}}'>+</a></td>
                     </tr>
                 @endforeach
             </tbody>
