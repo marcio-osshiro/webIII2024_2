@@ -41,4 +41,5 @@ class CategoriaController extends Controller
         $categoria->delete();
         return redirect('categoria');
     }
+
 }

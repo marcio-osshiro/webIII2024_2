@@ -16,7 +16,35 @@ class NoticiaController extends Controller
     function novo() {
         $noticia = new Noticia();
         $noticia->id = 0;
+        $noticia->data = date('Y-m-d');
         $categorias = Categoria::orderBy('descricao')->get();
         return view('formularioNoticia', compact('noticia', 'categorias'));
+    }
+
+    function salvar(Request $request) {
+        $id = $request->input('id');
+        if ($id == 0) {
+            $noticia = new Noticia();
+        } else {
+            $noticia = Noticia::find($request->input('id'));
+        }
+        $noticia->titulo = $request->input('titulo');
+        $noticia->data = $request->input('data');
+        $noticia->autor = $request->input('autor');
+        $noticia->categoria_id = $request->input('categoria_id');
+        $noticia->save();
+        return redirect('noticia');
+    }
+
+    function editar($id) {
+        $noticia = Noticia::find($id);
+        $categorias = Categoria::orderBy('descricao')->get();
+        return view('formularioNoticia', compact('noticia', 'categorias'));
+    }
+
+    function apagar($id) {
+        $noticia = Noticia::find($id);
+        $noticia->delete();
+        return redirect('noticia');
     }
 }
