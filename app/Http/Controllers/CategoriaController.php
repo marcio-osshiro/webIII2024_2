@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Categoria;
+use App\Http\Requests\CategoriaRequest;
 
 class CategoriaController extends Controller
 {
@@ -20,7 +21,8 @@ class CategoriaController extends Controller
         return view('formularioCategoria', compact('categoria'));
     }
 
-    function salvar(Request $request) {
+    function salvar(CategoriaRequest $request) {
+
         if ($request->input('id') == 0)  {
             $categoria = new Categoria();
         } else {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
 use App\Models\Categoria;
+use App\Http\Requests\NoticiaRequest;
 
 class NoticiaController extends Controller
 {
@@ -21,7 +22,7 @@ class NoticiaController extends Controller
         return view('formularioNoticia', compact('noticia', 'categorias'));
     }
 
-    function salvar(Request $request) {
+    function salvar(NoticiaRequest $request) {
         $id = $request->input('id');
         if ($id == 0) {
             $noticia = new Noticia();
