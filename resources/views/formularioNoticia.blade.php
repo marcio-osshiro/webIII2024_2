@@ -12,7 +12,11 @@
     @endif
 
     <h1>Notícia</h1>
-    <form action="{{url('noticia/salvar')}}" method="POST">
+    @if($noticia->imagem)
+        <img src="/storage/imagens/{{$noticia->imagem}}" style="width:40%;">
+    @endif
+
+    <form action="{{url('noticia/salvar')}}" method="POST" enctype="multipart/form-data">
 
         @csrf
 
@@ -42,6 +46,11 @@
 
             </select>
         </div>
+        <div class="mb-3">
+            <label for="arquivo" class="form-label">Arquivo</label>
+            <input type="file" class="form-control" id="arquivo" name="arquivo">
+        </div>
+
 
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>

@@ -12,6 +12,7 @@
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Descrição</th>
+                <th scope="col"></th>
                 <th>Apagar</th>
                 <th>Editar</th>
               </tr>
@@ -22,6 +23,11 @@
                     <tr>
                       <th scope='row'>{{$categoria->id}}</th>
                       <td>{{$categoria->descricao}}</td>
+                      <td>
+                        @if($categoria->imagem)
+                            <img src="/storage/imagens/{{$categoria->imagem}}" style="width:50px;">
+                        @endif
+                      </td>
                       <td>
                       <a class='btn btn-danger' href='categoria/apagar/{{$categoria->id}}'>x</a></td>
                       <td>

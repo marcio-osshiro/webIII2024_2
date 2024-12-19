@@ -11,7 +11,11 @@
         </div>
     @endif
     <h1>Categoria</h1>
-    <form action="{{url('categoria/salvar')}}" method="POST">
+    @if($categoria->imagem)
+        <img src="/storage/imagens/{{$categoria->imagem}}" style="width:200px;">
+    @endif
+
+    <form action="{{url('categoria/salvar')}}" method="POST"  enctype="multipart/form-data">
         @csrf
         <div class="mb-3">
             <label for="id" class="form-label">ID</label>
@@ -23,6 +27,10 @@
             @error('descricao')
                 <div class="alert alert-danger">{{ $message }}</div>
             @enderror
+        </div>
+        <div class="mb-3">
+            <label for="arquivo" class="form-label">Arquivo</label>
+            <input type="file" class="form-control" id="arquivo" name="arquivo">
         </div>
         <button type="submit" class="btn btn-primary">Salvar</button>
     </form>

@@ -11,6 +11,8 @@
             <th scope="col">Data</th>
             <th scope="col">Autor</th>
             <th scope="col">Categoria</th>
+            <th scope="col"></th>
+
             <th>Apagar</th>
             <th>Editar</th>
             </tr>
@@ -24,6 +26,11 @@
                     <td>{{$noticia->data->format('d/m/Y')}}</td>
                     <td>{{$noticia->autor}}</td>
                     <td>{{$noticia->categoria->descricao}}</td>
+                    <td>
+                        @if($noticia->imagem)
+                            <img src="/storage/imagens/{{$noticia->imagem}}" style="width:50px;">
+                        @endif
+                    </td>
                     <td>
                     <a class='btn btn-danger' href='noticia/apagar/{{$noticia->id}}'>x</a></td>
                     <td>
