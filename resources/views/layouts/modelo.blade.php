@@ -11,7 +11,7 @@
             background-color: black;
             list-style-type: none;
         }
-        a {
+        nav a, nav form, nav button {
             display: block;
             padding: 1rem;
             text-decoration: none;
@@ -19,7 +19,12 @@
             font-size: 1.5rem;
             font-family: arial, sans-serif;
         }
-        a:hover {
+        nav button {
+            border: none;
+            background-color: black;
+            color:white;
+        }
+        nav a:hover, nav form:hover, nav button:hover {
             background-color: gray;
         }
         </style>
@@ -36,6 +41,12 @@
             </li>
             <li>
                 <a href="{{url('noticia')}}">Notícia</a>
+            </li>
+            <li>
+                <form action="logout" method="post">
+                    @csrf
+                    <button type="submit" style="border:none; font-size: 1.5rem;background-color:black;color:white;padding:0">Sair</button>
+                </form>
             </li>
         </ul>
     </nav>
