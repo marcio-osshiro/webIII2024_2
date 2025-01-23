@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/categoria/salvar', [CategoriaController::class, 'salvar']);
     Route::get('/categoria/editar/{id}', [CategoriaController::class, 'editar']);
     Route::get('/categoria/apagar/{id}', [CategoriaController::class, 'apagar']);
+    Route::get('/categoria/pdf', [CategoriaController::class, 'pdf']);
 
     Route::get('/noticia', [NoticiaController::class, 'listar']);
     Route::get('/noticia/novo', [NoticiaController::class, 'novo']);

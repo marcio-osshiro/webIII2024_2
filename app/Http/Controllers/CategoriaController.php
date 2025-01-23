@@ -7,9 +7,17 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Categoria;
 use App\Http\Requests\CategoriaRequest;
 use Illuminate\Support\Facades\Storage;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class CategoriaController extends Controller
 {
+    function pdf() {
+        $categorias = Categoria::orderBy('descricao')->get();
+        $pdf = Pdf::loadView('listagemCategoriaPDF', compact('categorias'));
+        return $pdf->download('categorias.pdf');
+
+    }
+
     function listar() {
         $categorias = Categoria::orderBy('descricao')->get();
         return view('listagemCategoria', compact('categorias'));
