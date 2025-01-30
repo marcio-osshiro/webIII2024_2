@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +41,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/noticia/editar/{id}', [NoticiaController::class, 'editar']);
     Route::get('/noticia/apagar/{id}', [NoticiaController::class, 'apagar']);
 
+    Route::get('/usuario', [UserController::class, 'listar']);
+    Route::get('/usuario/mensagem/{id}', [UserController::class, 'mensagem']);
+    Route::post('/usuario/sendMail', [UserController::class, 'sendMail']);
 });
 
 require __DIR__.'/auth.php';
