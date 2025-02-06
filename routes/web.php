@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\VendaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -44,6 +45,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/usuario', [UserController::class, 'listar']);
     Route::get('/usuario/mensagem/{id}', [UserController::class, 'mensagem']);
     Route::post('/usuario/sendMail', [UserController::class, 'sendMail']);
+
+    Route::get('/venda', [VendaController::class, 'listar']);
+    Route::get('/venda/novo', [VendaController::class, 'novo']);
+    Route::post('/venda/salvar', [VendaController::class, 'salvar']);
+    Route::get('/venda/apagar/{id}', [VendaController::class, 'apagar']);
+    Route::get('/venda/editar/{id}', [VendaController::class, 'editar']);
+    Route::get('/venda/item/{id}', [VendaController::class, 'item']);
+    Route::post('/venda/salvar_item', [VendaController::class, 'salvar_item']);
+    Route::get('/venda/item/excluir/{id}', [VendaController::class, 'excluir_item']);
+
 });
 
 require __DIR__.'/auth.php';

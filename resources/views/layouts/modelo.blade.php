@@ -46,6 +46,9 @@
                 <a href="{{url('usuario')}}">Usuário</a>
             </li>
             <li>
+                <a href="{{url('venda')}}">Venda</a>
+            </li>
+            <li>
                 <form action="logout" method="post">
                     @csrf
                     <button type="submit" style="border:none; font-size: 1.5rem;background-color:black;color:white;padding:0">Sair</button>
